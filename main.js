@@ -1,7 +1,6 @@
 var students = [];
 
 function grabStudents(argument) {
-  // body...
   var htmlColl = document.getElementsByTagName("tr");
   var out = [];
   for (var i = 1; i < htmlColl.length; i++) {
@@ -16,7 +15,6 @@ function grabStudents(argument) {
 }
 
 function createStudent(name, email, github) {
-  // body...
   var student = {};
   student.name = name;
   student.email = email;
@@ -26,7 +24,6 @@ function createStudent(name, email, github) {
 }
 
 function shuffle(students) {
-  // body...
   var wrk = students.slice(0);
   var shuffled = [];
   while (wrk.length > 0) {
@@ -43,6 +40,7 @@ function shuffle(students) {
 function chunk(array, num) {
   // num is the size of each chunk
   //array is the shuffled array of students
+  //returns an array of grouped students, each group is an array
   var out = [];
   if (array.length % num === 0) {
     for (var i = 0; i < array.length; i += num) {
@@ -50,4 +48,10 @@ function chunk(array, num) {
     }
   }
   return out;
+}
+
+function genArray() {
+  for (var i = 0; i < 30; i++) {
+    students.push(createStudent("Bruce Wayne", "not_batman@gmail.com", "thebat"));
+  }
 }
