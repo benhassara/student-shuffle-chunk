@@ -1,21 +1,5 @@
 var students = [];
 
-function readCSV(filename) {
-  // read CSV data, spit out string
-  var fileText = "";
-  var file = new XMLHttpRequest();
-  file.open('GET', filename, false);
-  file.onreadystatechange = function() {
-    if (file.readyState === 4) {
-      // var reader = new FileReader();
-      fileText = file.responseText;
-      // fileText = reader.readAsText(file.response);
-    }
-  };
-  file.send(null);
-  return fileText;
-}
-
 function grabStudents(argument) {
   // body...
   var htmlColl = document.getElementsByTagName("tr");
