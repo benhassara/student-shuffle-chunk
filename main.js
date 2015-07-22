@@ -51,7 +51,7 @@ function chunk(array, num) {
 }
 
 function genArray() {
-  for (var i = 0; i < 30; i++) {
+  for (var i = 0; i < 29; i++) {
     students.push(createStudent("Bruce Wayne", "not_batman@gmail.com", "thebat"));
   }
 }
