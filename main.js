@@ -23,6 +23,49 @@ function createStudent(name, email, github) {
   return student;
 }
 
+function createCard(parent, student) {
+  //parent is the element to add data to
+  var newCard = document.createElement('div');
+  var data = linkify(student);
+  console.log(data);
+  // var name = document.createElement('a');
+  // name.innerText = student.name;
+  // var email = document.createElement('a');
+  // email.innerText = student.email;
+  // var github = linkify(student.github);
+  for (var i = 0; i < data.length; i++) {
+    var wrap = document.createElement('div');
+    wrap.appendChild(data[i]);
+    console.log(wrap);
+    newCard.appendChild(wrap);
+  }
+
+  // newCard.appendChild(name);
+  // newCard.appendChild(email);
+  // newCard.appendChild(github);
+
+
+  newCard.className = 'col-md-3 card-student';
+
+  parent.appendChild(newCard);
+}
+
+function linkify(student) {
+  //prop is a property of student obj
+  //!!!only for github right now!!!
+  var out = [];
+  for (var prop in student) {
+    var linkedProp = document.createElement('a');
+    linkedProp.innerText = student[prop];
+    out.push(linkedProp);
+  }
+  // var link = document.createElement('a');
+  // link.href = "https://github.com/" + prop;
+  // link.innerText = prop;
+  // return link;
+  return out;
+}
+
 function shuffle(students) {
   var wrk = students.slice(0);
   var shuffled = [];
