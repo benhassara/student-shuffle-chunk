@@ -84,10 +84,22 @@ function chunk(array, num) {
   // num is the size of each chunk
   //array is the shuffled array of students
   //returns an array of grouped students, each group is an array
+  var wrk = array.slice(0);
   var out = [];
-  if (array.length % num === 0) {
-    for (var i = 0; i < array.length; i += num) {
-      out.push(array.slice(i, (i + num)));
+  if (wrk.length % num === 0) {
+    for (var i = 0; i < wrk.length; i += num) {
+      out.push(wrk.slice(i, (i + num)));
+    }
+  }
+  else {
+    var numLeft = wrk.length % num;
+    var leftovers = wrk.splice(wrk.length - (numLeft + 1), numLeft);
+    for (var a = 0; a < wrk.length; a += num) {
+      out.push(wrk.slice(a, (a + num)));
+    }
+    for  (var b = 0; b < numLeft; b++) {
+      var randGroup = Math.floor(Math.random() * out.length);
+      out[randGroup].push(leftovers[b]);
     }
   }
   return out;
