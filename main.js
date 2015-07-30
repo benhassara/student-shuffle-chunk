@@ -10,7 +10,15 @@ $(function(){
     var $cards = $('.card-student');
     var size = $('#dropd').val();
     var grouped = chunk(shuffle(students), parseInt(size));
-    console.log(grouped);
+
+    $('#firstRow').empty();
+    for (var i = 0; i < grouped.length; i++) {
+      var newRow = $('<div class="row well">');
+      for (var a = 0; a < grouped[i].length; a++) {
+        newRow.append($(createCard(document.getElementsByClassName('container')[0], grouped[i][a])));
+      }
+      $('.container').append(newRow);
+    }
 
 
   });
