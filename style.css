@@ -62,8 +62,25 @@
   max-width: 80px;
 }
 
+#firstRow {
+  padding-top: 20px;
+}
+
 .card-student {
-  width: 250px;
-  height: 250px;
+  margin-top: 10px;
+  width: 200px;
+  height: 200px;
   border: 1px solid;
+  border-radius: 5px;
+}
+
+.card-student div {
+  height: 50px;
+}
+
+.img-card {
+  position: relative;
+  left: 20%;
+  height: 40%;
+  width: 40%;
 }

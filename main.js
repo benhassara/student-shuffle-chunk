@@ -1,5 +1,22 @@
 var students = [];
 
+$(function(){
+
+  //batman array
+  genArray();
+
+  $('#btn-go').on('click', function(){
+
+    var $cards = $('.card-student');
+    var size = $('#dropd').val();
+    var grouped = chunk(shuffle(students), parseInt(size));
+    console.log(grouped);
+
+
+  });
+
+});
+
 function grabStudents(argument) {
   var htmlColl = document.getElementsByTagName("tr");
   var out = [];
@@ -27,6 +44,8 @@ function createCard(parent, student) {
   //parent is the element to add data to
   var newCard = document.createElement('div');
   var data = linkify(student);
+  var pic = $('<img class="img-circle img-card" src="bruce.png">');
+  $(newCard).append(pic);
   console.log("linkify: ", data);
   // var name = document.createElement('a');
   // name.innerText = student.name;
@@ -45,12 +64,12 @@ function createCard(parent, student) {
   // newCard.appendChild(github);
 
 
-  newCard.className = 'col-sm-3 card-student';
+  newCard.className = 'col-xs-5 col-xs-offset-1 card-student';
 
   parent.appendChild(newCard);
 }
 
-function linkify(student) {
+function linkify(student, el) {
   //prop is a property of student obj
   //!!!only for github right now!!!
   var out = [];
@@ -82,8 +101,8 @@ function shuffle(students) {
 
 function chunk(array, num) {
   // num is the size of each chunk
-  //array is the shuffled array of students
-  //returns an array of grouped students, each group is an array
+  // array is the shuffled array of students
+  // returns an array of grouped students, each group is an array
   var wrk = array.slice(0);
   var out = [];
   if (wrk.length % num === 0) {
@@ -98,8 +117,8 @@ function chunk(array, num) {
       out.push(wrk.slice(a, (a + num)));
     }
     for  (var b = 0; b < numLeft; b++) {
-      var randGroup = Math.floor(Math.random() * out.length);
-      out[randGroup].push(leftovers[b]);
+      out.sort(function(a, b){return a.length - b.length;});
+      out[0].push(leftovers[b]);
     }
   }
   return out;

@@ -2,22 +2,26 @@
 <html>
 <head>
   <title>class-shuffle-chunk</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <div class="container">
+
     <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <select class="form-control" id="dropd">
-        <option>2</option>
-      </select>
-      <button class="btn btn-primary">Go</button>
+      <div class="col-xs-6 col-sm-4 col-sm-offset-4">
+        <select class="form-control" id="dropd">
+          <option>2</option>
+        </select>
+      <button id ="btn-go" class="btn btn-primary">Go</button>
+      </div>
     </div>
-    </div>
+
     <div id='firstRow' class="row"></div>
   </div>
 
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
