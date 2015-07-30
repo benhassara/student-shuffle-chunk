@@ -27,7 +27,7 @@ function createCard(parent, student) {
   //parent is the element to add data to
   var newCard = document.createElement('div');
   var data = linkify(student);
-  console.log(data);
+  console.log("linkify: ", data);
   // var name = document.createElement('a');
   // name.innerText = student.name;
   // var email = document.createElement('a');
@@ -45,7 +45,7 @@ function createCard(parent, student) {
   // newCard.appendChild(github);
 
 
-  newCard.className = 'col-md-3 card-student';
+  newCard.className = 'col-sm-3 card-student';
 
   parent.appendChild(newCard);
 }
